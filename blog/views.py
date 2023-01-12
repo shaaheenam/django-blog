@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -32,10 +32,10 @@ class UserPostListView(ListView):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date_posted')
 
-class PostDetailView(DetailView):
+class PostDetailView(DetailView): # blog/post_detail.html
     model = Post
 
-class PostCreateView(LoginRequiredMixin, CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView): #here it expects -> blog/post_form.html
     model = Post
     fields = ['title', 'content']
 
@@ -70,3 +70,18 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
     return render(request, 'blog/about.html', {'title':'About'})
+
+def contact(request):
+    return render(request, 'blog/contact.html', {'title':'Contact'})
+
+def redirect_fb(request):
+    return redirect("https://www.facebook.com")
+
+def redirect_tw(request):
+    return redirect("https://www.twitter.com")
+
+def redirect_ig(request):
+    return redirect("https://www.instagram.com")
+
+def redirect_yt(request):
+    return redirect("https://www.youtube.com")
