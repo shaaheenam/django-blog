@@ -69,6 +69,11 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 def about(request):
+    #item = Post.objects.all().filter(author='shaaheenam')
+    #context = {
+    #   'item' : item,
+    #}
+    #return render(request, 'blog/about.html', context)
     return render(request, 'blog/about.html', {'title':'About'})
 
 def contact(request):
