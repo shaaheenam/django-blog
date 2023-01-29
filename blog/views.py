@@ -18,7 +18,7 @@ def home(request):
 class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html' # <app>/<model>_<viewtype>.html
-    context_object_name = 'posts'
+    context_object_name = 'posts' # otherwise in home.html iteration will be over a var named object rather than post 
     ordering = ['-date_posted']
     paginate_by = 5
 
@@ -37,7 +37,7 @@ class PostDetailView(DetailView): # blog/post_detail.html
 
 class PostCreateView(LoginRequiredMixin, CreateView): #here it expects -> blog/post_form.html
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'image']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -45,7 +45,7 @@ class PostCreateView(LoginRequiredMixin, CreateView): #here it expects -> blog/p
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content','image']
 
     def form_valid(self, form):
         form.instance.author = self.request.user

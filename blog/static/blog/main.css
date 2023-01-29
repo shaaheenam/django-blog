@@ -10,6 +10,7 @@ body {
     color: #333333;
     margin-top: 5rem;
     background-attachment: fixed;
+    /*add animation*/
 }
 
 main {
@@ -54,7 +55,8 @@ ul {
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
-  opacity: 0.9;
+  /*opacity: 0.9;*/
+  flex-direction: column;
 }
 
 .article-title {
@@ -74,6 +76,17 @@ a.article-title:hover {
   height: 65px;
   width: 65px;
   margin-right: 16px;
+}
+
+.article-img-post_detail {
+  height: 100px;
+  width: 100px;
+  align-self: center;
+}
+
+.article-cover-image {
+  height:100%;
+  width: 100%;
 }
 
 .article-metadata {
