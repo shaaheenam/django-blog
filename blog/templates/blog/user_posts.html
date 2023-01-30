@@ -36,3 +36,6 @@
 
     {% endif %}
 {% endblock content %}
+{% block side_links %}
+  <li class="list-group-item list-group-item-light"><a href="{{ post.author.profile.linkedin }}">linkedin</a></li>
+{% endblock %}
