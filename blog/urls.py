@@ -13,7 +13,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', PostListView.as_view(), name='blog-home'),#name is actually getting used in appropriate place of base html href links
-    path('user/<str:username>', UserPostListView.as_view(), name='user-posts'), # blog/post_list.html <- <app>/<model>_<viewtype>.html
+    path('user/<str:username>', UserPostListView.as_view(), name='user-posts'), # blog/post_list.html <- <app>/<model>_<viewtype>.html by default but we gave template name as user_posts.html in views.py
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),# blog/post_detail.html
     path('post/new/', PostCreateView.as_view(), name='post-create'),# blog/post_form.html
     path('post/<int:pk>/update', PostUpdateView.as_view(), name='post-update'),
