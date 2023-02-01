@@ -19,3 +19,10 @@
         </div>
     </article>
 {% endblock content %}
+
+{% block side_links %}
+{% if posts.first.author.profile.linkedin %}
+  <li class="list-group-item list-group-item-light"><a href="{{ object.author.profile.linkedin }}" target="_blank">linkedin</a></li>
+{% endif %}
+  <li class="list-group-item list-group-item-light"><a href="mailto:{{ object.author.profile.user.email }}">Mail</a></li>
+{% endblock %}
